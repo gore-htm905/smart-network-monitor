@@ -12,7 +12,7 @@ COPY backend/src backend/src
 RUN cmake -S backend -B build \
     && cmake --build build --config Release
 
-FROM debian:bookworm-slim
+FROM gcc:13
 
 WORKDIR /app
 

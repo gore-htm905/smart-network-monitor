@@ -1,0 +1,24 @@
+# React dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
+# C++ build output
+backend/build/
+backend/cmake-build-*/
+backend/BackendServer.exe
+backend/*.o
+backend/*.obj
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8085/api';
+const API_BASE = 'https://smart-network-monitor-api1.onrender.com/api';
 
 async function fetchJson(url, options = {}) {
   try {

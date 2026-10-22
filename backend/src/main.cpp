@@ -1,9 +1,12 @@
+
 #include "ApiServer.h"
 #include "NetworkManager.h"
+#include <cstdlib>
 #include <iostream>
 
 int main() {
-    std::cout << "Starting Smart Communication Network Monitoring Backend..." << std::endl;
+    std::cout << "Starting Smart Communication Network Monitoring Backend..."
+              << std::endl;
 
     NetworkManager manager;
     manager.generateNetwork(10, 4);
@@ -11,7 +14,14 @@ int main() {
     ApiServer server(manager);
 
     int port = 8085;
-    std::cout << "Server listening on http://localhost:" << port << std::endl;
+
+    const char* portEnv = std::getenv("PORT");
+    if (portEnv != nullptr && *portEnv != '\0') {
+        port = std::atoi(portEnv);
+    }
+
+    std::cout << "Server listening on port " << port << std::endl;
+
     server.start(port);
 
     return 0;
